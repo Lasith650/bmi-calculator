@@ -1,13 +1,14 @@
 # Stage 1: Build stage
-FROM maven:3.5-jdk-8-alpine AS build
+FROM maven:3.8-openjdk-17 AS build
 
 WORKDIR /app
 COPY . /app
 
-RUN mvn clean install
+# Explicitly set Maven options to avoid interference with potential proxy settings
+RUN mvn clean install -B -DskipTests
 
 # Stage 2: Runtime stage
-FROM openjdk:8-jre-alpine
+FROM openjdk:17-jdk-alpine
 
 WORKDIR /app
 
