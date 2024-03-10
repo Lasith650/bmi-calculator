@@ -17,6 +17,10 @@ paths:
         required: true
         content:
           application/json:
+            example:
+              name: John Doe
+              height: 1.75
+              weight: 70.0
             schema:
               $ref: '#/components/schemas/BMIRecord'
       responses:
@@ -24,6 +28,12 @@ paths:
           description: BMI calculation successful
           content:
             application/json:
+              example:
+                id: 1
+                name: John Doe
+                height: 1.75
+                weight: 70.0
+                bmi: 22.86
               schema:
                 $ref: '#/components/schemas/BMIRecord'
         '400':
@@ -38,6 +48,12 @@ paths:
           description: Successful operation
           content:
             application/json:
+              example:
+                - id: 1
+                  name: John Doe
+                  height: 1.75
+                  weight: 70.0
+                  bmi: 22.86
               schema:
                 type: array
                 items:
