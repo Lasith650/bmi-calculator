@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  title: BMI Calculator API
+  version: 1.0.0
+  description: Simple API for calculating BMI (Body Mass Index)
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /api/bmi/calculate:
+    post:
+      summary: Calculate BMI
+      description: Calculates BMI based on provided weight and height and saves the record.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BMIRecord'
+      responses:
+        '200':
+          description: BMI calculation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BMIRecord'
+        '400':
+          description: Bad Request. Invalid input.
+
+  /api/bmi/history:
+    get:
+      summary: Get BMI History
+      description: Retrieves a list of BMI records.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BMIRecord'
+        '404':
+          description: No records found.
+
+components:
+  schemas:
+    BMIRecord:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique identifier for the BMI record
+        name:
+          type: string
+          description: Name of the individual
+        height:
+          type: number
+          description: Height in meters
+        weight:
+          type: number
+          description: Weight in kilograms
+        bmi:
+          type: number
+          description: Calculated BMI value
+      required:
+        - name
+        - height
+        - weight
