@@ -17,7 +17,7 @@ RUN chown -R nonrootuser /app
 EXPOSE 8080
 
 # Switch to the non-root user
-USER nonrootuser
+USER 15000
 
 # Define the command to run your application
 CMD ["java", "-jar", "app.jar"]
