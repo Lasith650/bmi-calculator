@@ -9,7 +9,7 @@ servers:
     description: Local development server
 
 paths:
-  /api/bmi/calculate:
+  /calculate:
     post:
       summary: Calculate BMI
       description: Calculates BMI based on provided weight and height and saves the record.
@@ -39,7 +39,7 @@ paths:
         '400':
           description: Bad Request. Invalid input.
 
-  /api/bmi/history:
+  /history:
     get:
       summary: Get BMI History
       description: Retrieves a list of BMI records.
