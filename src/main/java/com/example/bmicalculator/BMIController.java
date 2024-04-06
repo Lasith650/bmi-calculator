@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://f817f53b-cbe5-42e6-a653-43c3775555d4.e1-us-cdp-2.choreoapps.dev"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://f817f53b-cbe5-42e6-a653-43c3775555d4.e1-us-cdp-2.choreoapps.dev", "https://dbdf5bfe-de10-4ce0-a8ef-98ce24f4b442.e1-us-cdp-2.choreoapps.dev"})
 @RequestMapping("/api/bmi")
 public class BMIController
 {
