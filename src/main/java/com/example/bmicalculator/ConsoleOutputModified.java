@@ -1,5 +1,5 @@
 package com.example.bmicalculator;
 
-public class ConsoleOutput {
+public class ConsoleOutputModified {
     System.out.println("Hello");
 }
